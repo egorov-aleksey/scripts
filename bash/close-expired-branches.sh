@@ -9,7 +9,7 @@ get_expired_branches(){
 }
 
 get_expired_branches_for_user(){
-  $HG log -r "sort(head() and not closed() and not date('-$DAYS') and not branch('default'), user)" --template="{author}\t{branch}\n"
+  $HG log -r "sort(head() and not closed() and not date('-$DAYS') and not branch('default'), user)" --template="{author}\t{branch}\t{date|isodate}\n"
 }
 
 yesno(){
