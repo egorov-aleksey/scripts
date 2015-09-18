@@ -63,7 +63,7 @@ else
     yesno "Would you like to continue to close all these branches?"
 fi
 
-current_branch="$($HG branch)"
+current_revision="$($HG id -i)"
 
 for br in $(get_expired_branches); do
     echo "Switch branch on $br"
@@ -79,8 +79,8 @@ echo
 echo "Done."
 
 echo
-echo "Swith to current branch ($current_branch)"
-$HG up -C "$current_branch" > /dev/null
+echo "Swith to current revision ($current_revision)"
+$HG up -C "$current_revision" > /dev/null
 
 
 yesno "Would you like to continue to push to remote repository?"
